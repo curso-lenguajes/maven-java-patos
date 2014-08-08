@@ -31,7 +31,7 @@ public class PersistenciaImagen {
             FileOutputStream fos=new FileOutputStream(file);
             ObjectOutputStream oos=new ObjectOutputStream(fos);
             oos.writeObject(imagenes);
-            System.out.println("Guardado cone xito:"+i.getFile().length());
+            System.out.println("Guardado cone xito:");
         }catch(Exception e){
             
         }

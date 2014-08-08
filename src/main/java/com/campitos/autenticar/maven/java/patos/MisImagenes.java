@@ -139,12 +139,16 @@ public class MisImagenes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try{
         JFileChooser choser=new JFileChooser();
         choser.showOpenDialog(this);
     File file=    choser.getSelectedFile();
     String nombre=file.getName();
-    Imagen ima=new Imagen(file,nombre);
+    InputStream in=new FileInputStream(file);
+         byte[] datosImagen = IOUtils.toByteArray(in);
+    Imagen ima=new Imagen(datosImagen,nombre);
     PersistenciaImagen.guardarImagen(ima);
+        }catch(Exception e){}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -153,11 +157,11 @@ public class MisImagenes extends javax.swing.JFrame {
         int indice=id-1;
         try{
            Imagen ima=      PersistenciaImagen.leerImagenPorId(indice);
-           File f=ima.getFile();
-          InputStream in=new FileInputStream(f);
-         byte[] datosImagen = IOUtils.toByteArray(in);
+        
+         // InputStream in=new FileInputStream(f);
+       //  byte[] datosImagen = IOUtils.toByteArray(in);
 
-ImageIcon imageIcon = new ImageIcon(datosImagen);
+ImageIcon imageIcon = new ImageIcon(ima.getDatosImage());
 jLabel1.setIcon(imageIcon);
         }catch(Exception e){
             System.out.println(e.getMessage());

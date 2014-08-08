@@ -15,21 +15,17 @@ import java.io.Serializable;
  */
 public class Imagen implements Serializable{
     
-   private File file;
+   private byte[] datosImage;
    private String  nombre;
 
-    public Imagen(File file, String nombre) {
-        this.file = file;
+    public Imagen(byte[] datosImage, String nombre) {
+        this.datosImage = datosImage;
         this.nombre = nombre;
     }
 
-    public File getFile() {
-        return file;
-    }
+  
 
-    public void setFile(File file) {
-        this.file = file;
-    }
+  
 
     public String getNombre() {
         return nombre;
@@ -37,6 +33,14 @@ public class Imagen implements Serializable{
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public byte[] getDatosImage() {
+        return datosImage;
+    }
+
+    public void setDatosImage(byte[] datosImage) {
+        this.datosImage = datosImage;
     }
     
 }
