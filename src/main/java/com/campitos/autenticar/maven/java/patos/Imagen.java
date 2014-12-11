@@ -16,23 +16,16 @@ import java.io.Serializable;
 public class Imagen implements Serializable{
     
    private byte[] datosImage;
-   private String  nombre;
+   private String  titulo;
+   private String descripcion;
 
-    public Imagen(byte[] datosImage, String nombre) {
+    public Imagen(byte[] datosImage, String titulo, String descripcion) {
         this.datosImage = datosImage;
-        this.nombre = nombre;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
     }
 
-  
-
-  
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public Imagen() {
     }
 
     public byte[] getDatosImage() {
@@ -42,5 +35,21 @@ public class Imagen implements Serializable{
     public void setDatosImage(byte[] datosImage) {
         this.datosImage = datosImage;
     }
-    
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
 }
